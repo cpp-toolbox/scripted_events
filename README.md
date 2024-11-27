@@ -24,3 +24,6 @@ An event that can be toggled and has a duration, think of these like switches th
 A one time/singular event with no set duration. The easiest way to understand this is in the context of playing sounds, when you fire a gun you want to play the fire sound, you don't care how long it lasts because the duration is already baked into the sound itself, so you just want to play it and not ever care about turning it on or off, as it doesn't even have a state like that. 
 
 Note: The easiest way to compare these types of events are that toggle events are those in which you must manually control its duration, and playthrough events are those which handle their own duration themselves, so toggle events are like playthrough events except you're in charge of when they end.
+
+# animations
+When creating this system initially I believed that this was just a system that helped sync audio events and systems to animations, while this is a common use case it provides the ability to handle multiple animations at once or sequentially since all animations are regular old **playthrough events**.
