@@ -1,0 +1,79 @@
+{
+    "events": [
+        {
+            "name": "cigarette_smoke",
+            "time": 65,
+            "action": "toggle_on"
+        },
+        {
+            "name": "cigarette_smoke",
+            "time": 95,
+            "action": "toggle_off"
+        },
+        {
+            "name": "smoke_animation",
+            "time": 0,
+            "action": "playthrough"
+        },
+        {
+            "name": "grab",
+            "time": 15,
+            "action": "playthrough"
+        },
+        {
+            "name": "grab",
+            "time": 30,
+            "action": "playthrough"
+        },
+        {
+            "name": "lighter_flick_fail",
+            "time": 40,
+            "action": "playthrough"
+        },
+        {
+            "name": "lighter_flick_success",
+            "time": 55,
+            "action": "playthrough"
+        },
+        {
+            "name": "cigarette_burn",
+            "time": 65,
+            "action": "toggle_on"
+        },
+        {
+            "name": "cigarette_burn",
+            "time": 95,
+            "action": "toggle_off"
+        },
+        {
+            "name": "inhale",
+            "time": 100,
+            "action": "playthrough"
+        },
+        {
+            "name": "exhale",
+            "time": 120,
+            "action": "playthrough"
+        },
+        {
+            "name": "blowing_smoke",
+            "time": 120,
+            "action": "toggle_on"
+        },
+        {
+            "name": "blowing_smoke",
+            "time": 145,
+            "action": "toggle_off"
+        },
+        {
+            "name": "cigarette_smoke",
+            "time": 120,
+            "action": "toggle_on"
+        },
+        {
+            "name": "cigarette_smoke",
+            "time": 180,
+            "action": "toggle_off"
+        }
+    ]
+}
