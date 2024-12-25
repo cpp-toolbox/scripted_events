@@ -1,0 +1,61 @@
+legend
+- grab
+  - key: g
+  - type: playthrough
+- smoke_emitter
+  - key: se
+  - type: toggle
+- lighter_flick_fail
+  - key: lff
+  - type: playthrough
+- lighter_flick_success
+  - key: lfs
+  - type: playthrough
+- cigarette_burn
+  - key: cb
+  - type: toggle
+- cigarette_light
+  - key: cl
+  - type: toggle
+- blowing_smoke
+  - key: bs
+  - type: toggle
+- cigarette_smoke
+  - key: cs
+  - type: toggle
+- grab
+  - key: g
+  - type: playthrough
+- smoke_animation
+  - key: sa
+  - type: playthrough
+- inhale
+  - key: in
+  - type: playthrough
+- exhale
+  - key: ex
+  - type: playthrough
+
+frame_unit: 1s
+
+----- event layout system start -----
+
+x--------------------------------------------------------------------------------------------------------------------
+| comments   |                     grab cigs                 light it up                cig starts burning
+| events     |                                                                  >cs                           <cs   
+| events     | *sa            *g             *g        *lff           *lfs      >cb                           <cb  
+| timeline   | |---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+| frame: 000 | 0---------1---------2---------3---------4---------5---------6---------7---------8---------9---------10
+x---------------------------------------------------------------------------------------------------------------------
+
+x--------------------------------------------------------------------------------------------------------------------
+| comments   |       inhale       exhale   smoke comes out                                                           
+| events     | *in                 *ex                                                                               
+| events     |                     >bs                      <bs
+| events     |                     >cs                                                         <cs
+| comments   |                               keeping cigarette smoking continuously here
+| timeline   | |---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+| frame: 010 | 0---------1---------2---------3---------4---------5---------6---------7---------8---------9---------10
+x---------------------------------------------------------------------------------------------------------------------
+
+----- event layout system end -----

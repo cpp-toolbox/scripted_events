@@ -1,0 +1,16 @@
+Time (s)	Marker Name
+0.42	*grab_pack
+1.12	*grab_cig
+1.88	*transfer_cig_into_left_hand
+2.96	*grab_lighter
+3.75	*ligher_flick_fail
+4.38	*lighter_flick_success
+7.17	>inhale
+7.50	<inhale
+10.08	>inhale
+11.25	<inhale
+15.21	>inhale
+16.67	<inhale
+20.08	*grab_knife
+21.42	*knife_throw
+22.08	*couch_stab

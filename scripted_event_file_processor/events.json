@@ -2,77 +2,77 @@
     "events": [
         {
             "name": "cigarette_smoke",
-            "time": 65,
+            "time": 6.5,
             "action": "toggle_on"
         },
         {
             "name": "cigarette_smoke",
-            "time": 95,
+            "time": 9.5,
             "action": "toggle_off"
         },
         {
             "name": "smoke_animation",
-            "time": 0,
+            "time": 0.0,
             "action": "playthrough"
         },
         {
             "name": "grab",
-            "time": 15,
+            "time": 1.5,
             "action": "playthrough"
         },
         {
             "name": "grab",
-            "time": 30,
+            "time": 3.0,
             "action": "playthrough"
         },
         {
             "name": "lighter_flick_fail",
-            "time": 40,
+            "time": 4.0,
             "action": "playthrough"
         },
         {
             "name": "lighter_flick_success",
-            "time": 55,
+            "time": 5.5,
             "action": "playthrough"
         },
         {
             "name": "cigarette_burn",
-            "time": 65,
+            "time": 6.5,
             "action": "toggle_on"
         },
         {
             "name": "cigarette_burn",
-            "time": 95,
+            "time": 9.5,
             "action": "toggle_off"
         },
         {
             "name": "inhale",
-            "time": 100,
+            "time": 1.0,
             "action": "playthrough"
         },
         {
             "name": "exhale",
-            "time": 120,
+            "time": 3.0,
             "action": "playthrough"
         },
         {
             "name": "blowing_smoke",
-            "time": 120,
+            "time": 3.0,
             "action": "toggle_on"
         },
         {
             "name": "blowing_smoke",
-            "time": 145,
+            "time": 5.5,
             "action": "toggle_off"
         },
         {
             "name": "cigarette_smoke",
-            "time": 120,
+            "time": 3.0,
             "action": "toggle_on"
         },
         {
             "name": "cigarette_smoke",
-            "time": 180,
+            "time": 9.0,
             "action": "toggle_off"
         }
     ]

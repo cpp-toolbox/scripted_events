@@ -1,0 +1,12 @@
+[submodule "scripted_event_file_processor/text_utils"]
+	path = scripted_event_file_processor/text_utils
+	url = git@github.com:py-garden/text_utils.git
+[submodule "scripted_event_file_processor/math_utils"]
+	path = scripted_event_file_processor/math_utils
+	url = git@github.com:py-garden/math_utils.git
+[submodule "scripted_event_file_processor/collection_utils"]
+	path = scripted_event_file_processor/collection_utils
+	url = git@github.com:py-garden/collection_utils.git
+[submodule "scripted_event_file_processor/user_input"]
+	path = scripted_event_file_processor/user_input
+	url = git@github.com:py-garden/user_input.git

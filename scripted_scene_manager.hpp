@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <unordered_set>
 #include <vector>
 #include <glm/glm.hpp>
 #include <nlohmann/json.hpp>
@@ -11,18 +12,39 @@
 
 using json = nlohmann::json;
 
-class ScriptedSceneManager {
+class ScriptedEvent {
   public:
-    ScriptedSceneManager(const std::string &scripted_scene_json_path);
+    ScriptedEvent(const std::string &scripted_event_json_path);
 
-    void run_scripted_events(double ms_curr_time,
-                             std::function<void(double, const json &, const json &)> scripted_events);
+    void run_scripted_events(double curr_time_sec,
+                             const std::unordered_map<std::string, std::function<void(bool, bool)>> &event_callbacks);
 
   private:
-    json prev_state;
-    json curr_state;
-    json changes;
-    unsigned int changes_index;
+    struct PlaythroughEvent {
+        std::string name;
+        double time;
+    };
+
+    struct TogglableEvent {
+        std::string name;
+        double start_time;
+        double end_time;
+
+        std::string get_str_repr() const {
+            return "event: " + name + " (" + std::to_string(start_time) + ", " + std::to_string(end_time) + ")";
+        }
+    };
+
+    // TODO using strings here is bad when you have multiple events which could overlap
+    // that also using the same event name, this edge case needs to be handled robustly in the future
+    std::unordered_set<std::string> processed_playthrough_events;
+
+    std::vector<PlaythroughEvent> playthrough_events;
+    std::vector<TogglableEvent> togglable_events;
+
+    std::unordered_map<std::string, TemporalBinarySignal> togglable_event_to_tbs;
+
+    size_t playthrough_event_index = 0; ///< Index of the next event to process
 };
 
 #endif // SCRIPTED_SCENE_MANAGER_HPP
