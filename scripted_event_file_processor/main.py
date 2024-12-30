@@ -165,7 +165,7 @@ def parse_event_layout(file_path: str, legend: Dict) -> Dict:
             # at this point its guarenteed that we're working on a event line
 
             playthrough_matches = re.finditer(r"(\*)([A-Za-z]+)", line)
-            toggle_matches = [(m.group(1), m.start(), m.end() - 1) for m in re.finditer(r">(.)~*.*?<\1", line)]
+            toggle_matches = [(m.group(1), m.start(), m.end() - 1) for m in re.finditer(r">([A-Za-z0-9]+)~*.*?<\1", line)]
 
             for match in playthrough_matches:
                 event_type, key = match.groups()
