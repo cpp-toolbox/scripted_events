@@ -14,10 +14,15 @@ using json = nlohmann::json;
 
 class ScriptedEvent {
   public:
+    ScriptedEvent() {};
     ScriptedEvent(const std::string &scripted_event_json_path);
+
+    void load_in_new_scripted_event(const std::string &scripted_event_json_path);
 
     void run_scripted_events(double curr_time_sec,
                              const std::unordered_map<std::string, std::function<void(bool, bool)>> &event_callbacks);
+
+    void reset_processed_state();
 
   private:
     struct PlaythroughEvent {

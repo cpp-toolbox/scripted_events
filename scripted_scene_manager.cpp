@@ -7,8 +7,14 @@
 using json = nlohmann::json;
 
 ScriptedEvent::ScriptedEvent(const std::string &scripted_scene_json_path) : playthrough_event_index{0} {
+    load_in_new_scripted_event(scripted_scene_json_path);
+}
+
+void ScriptedEvent::load_in_new_scripted_event(const std::string &scripted_event_json_path) {
+    playthrough_events.clear();
+    togglable_events.clear();
     // Open and parse the JSON file
-    std::ifstream file(scripted_scene_json_path);
+    std::ifstream file(scripted_event_json_path);
     if (!file.is_open()) {
         throw std::runtime_error("Unable to open the scripted scene file!");
     }
@@ -46,6 +52,11 @@ ScriptedEvent::ScriptedEvent(const std::string &scripted_scene_json_path) : play
     // Sort togglable events by start_time
     std::sort(togglable_events.begin(), togglable_events.end(),
               [](const TogglableEvent &a, const TogglableEvent &b) { return a.start_time < b.start_time; });
+}
+
+void ScriptedEvent::reset_processed_state() {
+    playthrough_event_index = 0;
+    processed_playthrough_events.clear();
 }
 
 void ScriptedEvent::run_scripted_events(

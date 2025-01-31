@@ -326,43 +326,45 @@ class Timeline:
         return file_contents
 
 
-# Example usage:
-timeline = Timeline()
+if __name__ == "__main__":
+        
+    # Example usage:
+    timeline = Timeline()
 
-# Add some events
-timeline.add_comment("grab", 0)
-timeline.add_event("gcccccccccccc", "grab cigs", 0, Action.PLAYTHROUGH)
-timeline.add_comment("lightttttttttt", 1)
-timeline.add_event("liuuuuuu", "light it up", 1, Action.PLAYTHROUGH)
-timeline.add_comment("burnnnnnnn", 2)
-timeline.add_event("csb", "cig starts burning", 2, Action.TOGGLE_ON)
-timeline.add_event("csb", "cig starts burning", 3, Action.TOGGLE_OFF)
+    # Add some events
+    timeline.add_comment("grab", 0)
+    timeline.add_event("gcccccccccccc", "grab cigs", 0, Action.PLAYTHROUGH)
+    timeline.add_comment("lightttttttttt", 1)
+    timeline.add_event("liuuuuuu", "light it up", 1, Action.PLAYTHROUGH)
+    timeline.add_comment("burnnnnnnn", 2)
+    timeline.add_event("csb", "cig starts burning", 2, Action.TOGGLE_ON)
+    timeline.add_event("csb", "cig starts burning", 3, Action.TOGGLE_OFF)
 
-timeline.add_comment("inhaleeeeeeeeeeeee", 5)
-timeline.add_event("iiiiiiiiiiii", "inhale", 5, Action.PLAYTHROUGH)
-timeline.add_comment("exhale", 6.5)
-timeline.add_event("exxxxxxxxxxxxxx", "exhale", 6.5, Action.PLAYTHROUGH)
-timeline.add_comment("fresh boy", 16.0002)
-timeline.add_event("nb", "newboy", 16.0002, Action.PLAYTHROUGH)
+    timeline.add_comment("inhaleeeeeeeeeeeee", 5)
+    timeline.add_event("iiiiiiiiiiii", "inhale", 5, Action.PLAYTHROUGH)
+    timeline.add_comment("exhale", 6.5)
+    timeline.add_event("exxxxxxxxxxxxxx", "exhale", 6.5, Action.PLAYTHROUGH)
+    timeline.add_comment("fresh boy", 16.0002)
+    timeline.add_event("nb", "newboy", 16.0002, Action.PLAYTHROUGH)
 
-# Generate timeline output
-timeline_output = timeline.generate_timeline()
-print(timeline_output)
-
-
-
-################
+    # Generate timeline output
+    timeline_output = timeline.generate_timeline()
+    print(timeline_output)
 
 
 
-# Example usage:
-intervals = [(1, 3), (2, 4), (3, 5), (7, 8), (6, 9)]
-num_channels, mapping = min_channels_with_mapping(intervals)
-print(f"Minimum number of channels required: {num_channels}")
-print("Mapping of intervals to channels:")
-for interval, channel in mapping.items():
-    print(f"Interval {interval} -> Channel {channel}")
+    ################
 
-################
+
+
+    # Example usage:
+    intervals = [(1, 3), (2, 4), (3, 5), (7, 8), (6, 9)]
+    num_channels, mapping = min_channels_with_mapping(intervals)
+    print(f"Minimum number of channels required: {num_channels}")
+    print("Mapping of intervals to channels:")
+    for interval, channel in mapping.items():
+        print(f"Interval {interval} -> Channel {channel}")
+
+    ################
 
 
