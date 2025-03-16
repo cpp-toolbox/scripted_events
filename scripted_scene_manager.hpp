@@ -19,19 +19,19 @@ class ScriptedEvent {
 
     void load_in_new_scripted_event(const std::string &scripted_event_json_path);
 
-    void run_scripted_events(double curr_time_sec,
-                             // given events of the form *X, >Y, <Y then the string in this map is one of X, Y (the
-                             // indicator is stripped out)
-                             //
-                             // the two parameters to the function are mainly there for toggle events, which are events
-                             // with a specified duration
-                             //
-                             // the first boolean parameter is if this is the first_call, which allows you to initialize
-                             // the required systems for this scripted event
-                             //
-                             // the second boolean parameter is if this is the last call to this event which is good for
-                             // de-initializing systems that were used during that event.
-                             const std::unordered_map<std::string, std::function<void(bool, bool)>> &event_callbacks);
+    void run(double delta_time,
+             // given events of the form *X, >Y, <Y then the string in this map is one of X, Y (the
+             // indicator is stripped out)
+             //
+             // the two parameters to the function are mainly there for toggle events, which are events
+             // with a specified duration
+             //
+             // the first boolean parameter is if this is the first_call, which allows you to initialize
+             // the required systems for this scripted event
+             //
+             // the second boolean parameter is if this is the last call to this event which is good for
+             // de-initializing systems that were used during that event.
+             const std::unordered_map<std::string, std::function<void(bool, bool)>> &event_callbacks);
 
     void reset_processed_state();
 
@@ -50,6 +50,8 @@ class ScriptedEvent {
             return "event: " + name + " (" + std::to_string(start_time) + ", " + std::to_string(end_time) + ")";
         }
     };
+
+    double current_time_seconds;
 
     // TODO using strings here is bad when you have multiple events which could overlap
     // that also using the same event name, this edge case needs to be handled robustly in the future

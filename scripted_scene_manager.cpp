@@ -55,18 +55,21 @@ void ScriptedEvent::load_in_new_scripted_event(const std::string &scripted_event
 }
 
 void ScriptedEvent::reset_processed_state() {
+    current_time_seconds = 0;
     playthrough_event_index = 0;
     processed_playthrough_events.clear();
 }
 
-void ScriptedEvent::run_scripted_events(
-    double curr_time_sec, const std::unordered_map<std::string, std::function<void(bool, bool)>> &event_callbacks) {
+void ScriptedEvent::run(double delta_time,
+                        const std::unordered_map<std::string, std::function<void(bool, bool)>> &event_callbacks) {
+
+    current_time_seconds += delta_time;
 
     // Process playthrough events based on current time
     // this is like a moving time ticker, event index doesn't get reset because
     // there's no need to check events coming before because they have a smaller time
     while (playthrough_event_index < playthrough_events.size() &&
-           playthrough_events[playthrough_event_index].time <= curr_time_sec) {
+           playthrough_events[playthrough_event_index].time <= current_time_seconds) {
         const auto &event = playthrough_events[playthrough_event_index];
 
         auto it = event_callbacks.find(event.name);
@@ -87,7 +90,8 @@ void ScriptedEvent::run_scripted_events(
     for (const auto &toggle_event : togglable_events) {
 
         auto &curr_tbs = togglable_event_to_tbs[toggle_event.get_str_repr()];
-        bool event_is_toggled = toggle_event.start_time <= curr_time_sec and curr_time_sec <= toggle_event.end_time;
+        bool event_is_toggled =
+            toggle_event.start_time <= current_time_seconds and current_time_seconds <= toggle_event.end_time;
 
         if (event_is_toggled) {
             curr_tbs.set_on();
