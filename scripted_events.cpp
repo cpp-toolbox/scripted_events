@@ -1,4 +1,4 @@
-#include "scripted_scene_manager.hpp"
+#include "scripted_events.hpp"
 
 #include <algorithm>
 #include <fstream>

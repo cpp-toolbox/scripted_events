@@ -1,5 +1,5 @@
-#ifndef SCRIPTED_SCENE_MANAGER_HPP
-#define SCRIPTED_SCENE_MANAGER_HPP
+#ifndef SCRIPTED_EVENTS_HPP
+#define SCRIPTED_EVENTS_HPP
 
 #include <string>
 #include <map>
@@ -65,4 +65,4 @@ class ScriptedEvent {
     size_t playthrough_event_index = 0; ///< Index of the next event to process
 };
 
-#endif // SCRIPTED_SCENE_MANAGER_HPP
+#endif // SCRIPTED_EVENTS_HPP
